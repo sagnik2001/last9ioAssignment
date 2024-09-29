@@ -16,11 +16,11 @@ interface Exporter {
   rules: { name: string }[];
 }
 
-interface ContentProps {
-  // Any props go here
+interface ContentResponse {
+  groups: Rule[];
 }
 
-const Content: React.FC<ContentProps> = () => {
+const Content = () => {
   const [rules, setRules] = useState<Rule[]>([]);
   const [search, setSearch] = useState<string>("");
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const Content: React.FC<ContentProps> = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const getRules = async () => {
-    const response = await getContent();
+    const response: ContentResponse | undefined = await getContent();
     setRules(response?.groups || []);
   };
 

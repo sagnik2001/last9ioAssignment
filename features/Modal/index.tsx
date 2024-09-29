@@ -4,7 +4,7 @@ import classes from "../../molecules/Cards/styles.module.css";
 
 // Assuming a basic structure for the Rule and Exporter
 interface Rule {
-  name: string;
+  name?: string;
   img?: string;
   exporters: Exporter[];
 }
